@@ -62,34 +62,34 @@ On average, the score is 0.07 higher for every bty_avg point.
 
 ```{r viz-score_bty_fit,eval=FALSE}
 # add your plot here. Hint, you can add the regression line using geom_smooth()
-
+ggplot(data = evals, mapping = aes(x= bty_avg, y =score)) + geom_smooth(method = "lm", se = FALSE) + geom_jitter()
 
 ```
 
 3. Interpret the slope of the linear model in context of the data.
 
-*Add your interpretation here*
+That the score increases as bty_avg increases, however the average stays around score four, and only slightly differs from 4 asthe bty_avg increases.
 
 4. Interpret the intercept of the linear model in context of the data. Comment on whether or not the intercept makes sense in this context.
 
-*Add your interpretation here*
+That when the bty_avg is zero, then the score is 3.88, however the average beauty cannot be zero as the range for avg_bty is 1.5-8.5.
 
 5. Determine the $R^2$ of the model and interpret it in the context of the data.
 
 ```{r R2, eval = FALSE}
 # remove eval = FALSE from the code chunk options after filling in the blanks
-glance(___)$___
+glance(score_bty_fit)
 ```
 
-*Add your interpretation here*
+The linear model explains 3.35% of the variability of score.
 
 6. Make a plot of residuals vs. predicted values for the model above.
 
-```{r viz-score_bty_fit-diagnostic, eval = FALSE}
-# remove eval = FALSE from the code chunk options after filling in the blanks
+```{r viz-score_bty_fit-diagnostic}
+
 score_bty_aug <- augment(score_bty_fit$fit)
 
-ggplot(___) + ...
+
 ```
 
 # Exercise 3: Simple Linear regression with a categorical predictor
